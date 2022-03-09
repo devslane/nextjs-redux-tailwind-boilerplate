@@ -1,4 +1,4 @@
-# React Tailwindcss MobX Boilerplate build with Vite
+# NextJS Tailwindcss Redux Boilerplate build with Vite
 
 This is a [NextJs](https://nextjs.org/) boilerplate project to be used with [Tailwindcss](https://tailwindcss.com), [Redux](https://redux.js.org/).
 

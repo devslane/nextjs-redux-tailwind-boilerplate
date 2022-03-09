@@ -1,8 +1,22 @@
+import React from 'react';
+import App, { AppContext, AppInitialProps } from 'next/app';
+import { wrapper } from '../src/redux/store';
 import '../styles/globals.css';
-import type { AppProps } from 'next/app';
 
-var MyApp = ({ Component, pageProps }: AppProps) => {
-    return <Component {...pageProps} />;
-};
+class WrappedApp extends App<AppInitialProps> {
+    public static getInitialProps = async ({ Component, ctx }: AppContext) => {
+        return {
+            pageProps: {
+                ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
+                appProp: ctx.pathname,
+            },
+        };
+    };
 
-export default MyApp;
+    public render() {
+        const { Component, pageProps } = this.props;
+        return <Component {...pageProps} />;
+    }
+}
+
+export default wrapper.withRedux(WrappedApp);
