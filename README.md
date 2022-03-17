@@ -20,7 +20,7 @@ This project uses many tools like:
 Create the project.
 
 ```bash
-npx degit https://github.com/manbhasin/next-redux-tailwind-boilerplate my-app
+npx degit https://github.com/devslane/nextjs-redux-tailwind-boilerplate my-app
 ```
 
 Access the project directory.
