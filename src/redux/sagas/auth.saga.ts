@@ -1,4 +1,4 @@
-import { SagaPayloadType } from 'models/types/SagaPayloadType';
+import { SagaPayloadType } from 'types/SagaPayload.type';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { AuthActionType } from 'redux/actions/actions.constants';
 import {

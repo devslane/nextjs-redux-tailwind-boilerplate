@@ -4,7 +4,7 @@ import Head from 'next/head';
 interface GenericSetHeadProps {
   title: string;
   metadata?: Array<{
-    property: 'keyword' | 'description' | 'image' | 'url';
+    property: string;
     content: string;
   }>;
   keyword?: string;
