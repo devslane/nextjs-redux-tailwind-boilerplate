@@ -1,3 +1,3 @@
-export interface SAGA_PAYLOAD_TYPE {
-    type: string;
+export interface SagaPayloadType {
+  type: string;
 }

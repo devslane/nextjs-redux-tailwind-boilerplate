@@ -1,5 +1,14 @@
 {
-  "extends": ["next/core-web-vitals", "next", "prettier", "eslint:recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "next",
+    "airbnb",
+    "airbnb-typescript",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:react-redux/recommended",
+    "plugin:react-hooks/recommended"
+  ],
   "env": {
     "browser": true,
     "es2021": true
@@ -10,9 +19,17 @@
       "jsx": true
     },
     "ecmaVersion": 2020,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "import"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "import",
+    "react-redux",
+    "simple-import-sort"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "no-use-before-define": "off",
@@ -51,14 +68,14 @@
     ],
     "react/jsx-props-no-spreading": "off",
     "no-unused-vars": "off",
-    //    TODO: reinsert it once setup is complete
-    //    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": ["error"],
     "no-shadow": "off",
     "react/button-has-type": "off",
     "default-param-last": "off",
     "func-names": ["error", "as-needed"],
     "no-param-reassign": ["error", { "props": false }],
-    "@typescript-eslint/no-shadow": ["warn"]
+    "@typescript-eslint/no-shadow": ["warn"],
+    "react/no-array-index-key": "warn"
   },
   "settings": {
     "import/resolver": {

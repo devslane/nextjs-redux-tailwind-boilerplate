@@ -1,7 +1,7 @@
 export interface Entity {
-    id: number;
+  id: number;
 }
 
 export interface EntityMap<T extends Entity> {
-    [key: number]: T;
+  [key: number]: T;
 }

@@ -1,65 +1,65 @@
 export const AUTH_TOKEN = 'authToken';
 
 export class LocalStorageService {
-    private static _instance: LocalStorageService;
+  private static _instance: LocalStorageService;
 
-    static getInstance(): LocalStorageService {
-        if (!this._instance) {
-            this._instance = new LocalStorageService();
-        }
-
-        return this._instance;
+  static getInstance(): LocalStorageService {
+    if (!this._instance) {
+      this._instance = new LocalStorageService();
     }
 
-    setLocalStorageValue(key: string, value: string): void {
-        if (typeof localStorage !== 'undefined') {
-            localStorage?.setItem(key, value);
-        }
-    }
+    return this._instance;
+  }
 
-    getLocalStorageValue(key: string): string | null {
-        if (typeof localStorage !== 'undefined') {
-            return localStorage?.getItem(key);
-        }
-        return null;
+  setLocalStorageValue(key: string, value: string): void {
+    if (typeof localStorage !== 'undefined') {
+      localStorage?.setItem(key, value);
     }
+  }
 
-    removeLocalStorageValue(key: string): void {
-        if (typeof localStorage !== 'undefined') {
-            localStorage?.removeItem(key);
-        }
+  getLocalStorageValue(key: string): string | null {
+    if (typeof localStorage !== 'undefined') {
+      return localStorage?.getItem(key);
     }
+    return null;
+  }
 
-    setSessionStorageValue(key: string, value: string): void {
-        if (typeof sessionStorage !== 'undefined') {
-            sessionStorage?.setItem(key, value);
-        }
+  removeLocalStorageValue(key: string): void {
+    if (typeof localStorage !== 'undefined') {
+      localStorage?.removeItem(key);
     }
+  }
 
-    getSessionStorageValue(key: string): string | null {
-        if (typeof sessionStorage !== 'undefined') {
-            return sessionStorage?.getItem(key);
-        }
-        return null;
+  setSessionStorageValue(key: string, value: string): void {
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage?.setItem(key, value);
     }
+  }
 
-    removeSessionStorageValue(key: string): void {
-        if (typeof sessionStorage !== 'undefined') {
-            sessionStorage?.removeItem(key);
-        }
+  getSessionStorageValue(key: string): string | null {
+    if (typeof sessionStorage !== 'undefined') {
+      return sessionStorage?.getItem(key);
     }
+    return null;
+  }
 
-    setAuthToken(token: string): void {
-        this.setLocalStorageValue(AUTH_TOKEN, token);
+  removeSessionStorageValue(key: string): void {
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage?.removeItem(key);
     }
+  }
 
-    getAuthToken(): string | null {
-        return this.getLocalStorageValue(AUTH_TOKEN);
-    }
+  setAuthToken(token: string): void {
+    this.setLocalStorageValue(AUTH_TOKEN, token);
+  }
 
-    removeAuthToken(): void {
-        this.removeLocalStorageValue(AUTH_TOKEN);
-    }
+  getAuthToken(): string | null {
+    return this.getLocalStorageValue(AUTH_TOKEN);
+  }
+
+  removeAuthToken(): void {
+    this.removeLocalStorageValue(AUTH_TOKEN);
+  }
 }
 
 export const localStorageService = LocalStorageService.getInstance();

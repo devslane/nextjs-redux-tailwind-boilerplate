@@ -41,12 +41,6 @@ Serve with hot reload at <http://localhost:3000>.
 yarn run dev
 ```
 
-### Lint
-
-```bash
-yarn run lint
-```
-
 ### Details
 
 - How to use .env variables ?
@@ -63,23 +57,4 @@ const envConfig = {
 };
 
 export default envConfig;
-```
-
-- **What if I have my own font files ?**
-
-  - Add font files in public folder. I have created another folder `font-files` in public and copied all the font files into that
-  - Use those files in your global css file to override the defaults. See below
-
-```css
-@font-face {
-    font-family: 'GT Walsheim Pro Regular';
-    font-style: regular;
-    src: url('/font-files/GT-WALSHEIM-PRO-REGULAR.TTF') format('truetype'), url('/font-files/GTWalsheimProRegular.woff2')
-            format('woff2');
-    font-display: swap;
-}
-
-html {
-    font-family: 'GT Walsheim Pro Regular';
-}
 ```
