@@ -1,7 +1,7 @@
 import React from 'react';
 import App, { AppContext, AppInitialProps } from 'next/app';
 import { wrapper } from '../src/redux/store';
-import '../styles/globals.scss';
+import '../src/index.scss';
 
 class WrappedApp extends App<AppInitialProps> {
   public static getInitialProps = async ({ Component, ctx }: AppContext) => ({
