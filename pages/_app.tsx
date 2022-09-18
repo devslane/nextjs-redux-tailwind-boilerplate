@@ -1,6 +1,6 @@
 import React from 'react';
 import App, { AppContext, AppInitialProps } from 'next/app';
-import { wrapper } from '../src/redux/store';
+import wrapper from '../src/redux/store';
 import '../src/index.scss';
 
 class WrappedApp extends App<AppInitialProps> {
