@@ -4,7 +4,7 @@ import { createWrapper } from 'next-redux-wrapper';
 import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from '@redux-devtools/extension';
 import createSagaMiddleware, { Task } from 'redux-saga';
-import RootReducer from './reducers';
+import RootReducer, { AppState } from './reducers';
 import rootSaga from './sagas';
 
 export interface SagaStore extends Store {
@@ -30,4 +30,6 @@ const makeStore = () => {
 };
 
 // export an assembled wrapper
-export const wrapper = createWrapper<Store<any>>(makeStore, { debug: true });
+export default createWrapper<Store<AppState>>(makeStore, {
+  debug: true,
+});
