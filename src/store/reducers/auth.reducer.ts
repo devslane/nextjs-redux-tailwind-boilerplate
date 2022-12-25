@@ -1,6 +1,6 @@
 import produce from 'immer';
 import { Reducer } from 'redux';
-import { AuthActionType } from 'redux/actions/actions.constants';
+import { AuthActionType } from 'store/actions/actions.constants';
 
 export interface AuthState {
   userID?: number;
