@@ -1,13 +1,13 @@
 import { SagaPayloadType } from 'types/SagaPayload.type';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { AuthActionType } from 'redux/actions/actions.constants';
+import { AuthActionType } from 'store/actions/actions.constants';
 import {
   authFetchMeCompletedAction,
   authFetchMeErrorAction,
   AuthLoginActionPayloadType,
   authLoginCompletedAction,
   authLoginErrorAction,
-} from 'redux/actions/auth.action';
+} from 'store/actions/auth.action';
 import { authService } from 'services/api-services/AuthService';
 import { localStorageService } from 'services/LocalStorageService';
 
