@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 interface GenericSetHeadProps {
   title: string;
+  siteName: string;
   metadata?: Array<{
     property: string;
     content: string;
@@ -11,20 +12,17 @@ interface GenericSetHeadProps {
 }
 
 const GenericSetHead: React.FC<GenericSetHeadProps> = (props) => {
-  const { title, metadata, keyword } = props;
+  const { title, metadata, keyword, siteName } = props;
   return (
     <Head>
       <title>{title}</title>
       <meta name='title' content={`${title}`} />
-      <meta
-        property='keyword'
-        content={`${keyword}, online classes, kids courses, kids dance, online activities lockdownextracurricular, online, courses, kids, free, UK`}
-      />
+      <meta property='keyword' content={keyword} />
       <meta property='twitter:card' content='summary_large_image' />
       <meta property='twitter:title' content={`${title}`} />
       <meta property='og:title' content={`${title}`} />
       <meta property='og:type' content='website' />
-      <meta property='og:site_name' content='Test' />
+      <meta property='og:site_name' content={siteName} />
       {/* TODO: need to optimised */}
       {(metadata || []).map((meta, index) => {
         if (meta.property === 'description') {

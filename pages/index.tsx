@@ -4,7 +4,10 @@ import GenericSetHead from 'shared/GenericSetHead';
 
 const Home: NextPage = () => (
   <>
-    <GenericSetHead title='Boilerplate : NextJS + Tailwind + Redux' />
+    <GenericSetHead
+      siteName='Boilerplate'
+      title='Boilerplate : NextJS + Tailwind + Redux'
+    />
     <div className='flex flex-col h-full'>
       <div className='flex flex-col items-center justify-center h-4/5'>
         <span className='text-4xl'>Basic Setup</span>
