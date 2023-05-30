@@ -1,7 +1,15 @@
+import Cookies, { CookieSetOptions } from 'universal-cookie';
+
 export const AUTH_TOKEN = 'authToken';
 
-export class LocalStorageService {
+class LocalStorageService {
   private static _instance: LocalStorageService;
+
+  private _cookies: Cookies;
+
+  private constructor() {
+    this._cookies = new Cookies();
+  }
 
   static getInstance(): LocalStorageService {
     if (!this._instance) {
@@ -50,16 +58,38 @@ export class LocalStorageService {
   }
 
   setAuthToken(token: string): void {
-    this.setLocalStorageValue(AUTH_TOKEN, token);
+    this.setCookie(AUTH_TOKEN, token);
   }
 
-  getAuthToken(): string | null {
-    return this.getLocalStorageValue(AUTH_TOKEN);
+  getAuthToken() {
+    return this.getCookie(AUTH_TOKEN);
   }
 
   removeAuthToken(): void {
-    this.removeLocalStorageValue(AUTH_TOKEN);
+    this.deleteCookie(AUTH_TOKEN);
+  }
+
+  setCookies(cookies: any): void {
+    this._cookies = new Cookies(cookies);
+  }
+
+  setCookie(key: string, value: string, options?: CookieSetOptions): void {
+    this._cookies.set(key, value, options);
+  }
+
+  getCookie(key: string) {
+    return this._cookies.get(key);
+  }
+
+  getCookies() {
+    return this._cookies.getAll();
+  }
+
+  deleteCookie(key: string) {
+    this._cookies.remove(key);
   }
 }
 
-export const localStorageService = LocalStorageService.getInstance();
+const localStorageService = LocalStorageService.getInstance();
+
+export default localStorageService;
