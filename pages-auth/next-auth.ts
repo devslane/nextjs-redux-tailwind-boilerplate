@@ -15,7 +15,7 @@ import NextRouteConfig from 'constants/NextRouteConfig';
 import { StatusCodes } from 'constants/status-codes';
 import { Roles } from 'enums/Roles';
 // services
-import LocalStorageService from 'services/LocalStorageService';
+import storageService from 'services/StorageService';
 // store
 import { authFetchMeAction } from 'store/actions/auth.action';
 import { AppState } from 'store/reducers';
@@ -55,7 +55,7 @@ const nextAuth =
   async (
     context: GetServerSidePropsContext
   ): Promise<GetServerSidePropsResult<any>> => {
-    LocalStorageService.setCookies(context.req.headers.cookie);
+    storageService.setCookies(context.req.headers.cookie);
 
     try {
       let serverData: any = {
@@ -68,7 +68,7 @@ const nextAuth =
       let tokenExpired = true;
 
       // checking token expiration
-      const authToken = await LocalStorageService.getAuthToken();
+      const authToken = await storageService.getAuthToken();
 
       if (authToken) {
         const decoded: any = jwt_decode(authToken || '');

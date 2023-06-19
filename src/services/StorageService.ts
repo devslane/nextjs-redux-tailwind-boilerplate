@@ -2,8 +2,8 @@ import Cookies, { CookieSetOptions } from 'universal-cookie';
 
 export const AUTH_TOKEN = 'authToken';
 
-class LocalStorageService {
-  private static _instance: LocalStorageService;
+class StorageService {
+  private static _instance: StorageService;
 
   private _cookies: Cookies;
 
@@ -11,9 +11,9 @@ class LocalStorageService {
     this._cookies = new Cookies();
   }
 
-  static getInstance(): LocalStorageService {
+  static getInstance(): StorageService {
     if (!this._instance) {
-      this._instance = new LocalStorageService();
+      this._instance = new StorageService();
     }
 
     return this._instance;
@@ -90,6 +90,6 @@ class LocalStorageService {
   }
 }
 
-const localStorageService = LocalStorageService.getInstance();
+const storageService = StorageService.getInstance();
 
-export default localStorageService;
+export default storageService;
