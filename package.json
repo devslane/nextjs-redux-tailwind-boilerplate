@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix && eslint 'pages/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --fix && eslint 'pages/**/*.{ts,tsx}' --fix",
     "prettify": "prettier -c --write src/**/* && prettier -c --write pages/**/*",
     "prepare": "husky install",
     "install:clean": "rm -rf node_modules/ && yarn",
@@ -56,13 +56,13 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx}": [
-      "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "src/**/*.{ts,tsx}": [
+      "eslint 'src/**/*.{ts,tsx}' --fix",
       "prettier -c --write src/**/*",
       "git add --force"
     ],
-    "pages/**/*.{js,ts,tsx}": [
-      "eslint 'pages/**/*.{js,ts,tsx}' --fix",
+    "pages/**/*.{ts,tsx}": [
+      "eslint 'pages/**/*.{ts,tsx}' --fix",
       "prettier -c --write pages/**/*",
       "git add --force"
     ]
