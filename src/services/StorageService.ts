@@ -1,11 +1,19 @@
+import Cookies, { CookieSetOptions } from 'universal-cookie';
+
 export const AUTH_TOKEN = 'authToken';
 
-export class LocalStorageService {
-  private static _instance: LocalStorageService;
+class StorageService {
+  private static _instance: StorageService;
 
-  static getInstance(): LocalStorageService {
+  private _cookies: Cookies;
+
+  private constructor() {
+    this._cookies = new Cookies();
+  }
+
+  static getInstance(): StorageService {
     if (!this._instance) {
-      this._instance = new LocalStorageService();
+      this._instance = new StorageService();
     }
 
     return this._instance;
@@ -50,16 +58,38 @@ export class LocalStorageService {
   }
 
   setAuthToken(token: string): void {
-    this.setLocalStorageValue(AUTH_TOKEN, token);
+    this.setCookie(AUTH_TOKEN, token);
   }
 
-  getAuthToken(): string | null {
-    return this.getLocalStorageValue(AUTH_TOKEN);
+  getAuthToken() {
+    return this.getCookie(AUTH_TOKEN);
   }
 
   removeAuthToken(): void {
-    this.removeLocalStorageValue(AUTH_TOKEN);
+    this.deleteCookie(AUTH_TOKEN);
+  }
+
+  setCookies(cookies: any): void {
+    this._cookies = new Cookies(cookies);
+  }
+
+  setCookie(key: string, value: string, options?: CookieSetOptions): void {
+    this._cookies.set(key, value, options);
+  }
+
+  getCookie(key: string) {
+    return this._cookies.get(key);
+  }
+
+  getCookies() {
+    return this._cookies.getAll();
+  }
+
+  deleteCookie(key: string) {
+    this._cookies.remove(key);
   }
 }
 
-export const localStorageService = LocalStorageService.getInstance();
+const storageService = StorageService.getInstance();
+
+export default storageService;

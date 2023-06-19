@@ -5,7 +5,7 @@ import Axios, {
   CancelTokenSource,
   RawAxiosRequestHeaders,
 } from 'axios';
-import { localStorageService } from '../LocalStorageService';
+import storageService from '../StorageService';
 
 interface RequestConfig extends AxiosRequestConfig {
   requestId?: string;
@@ -160,7 +160,7 @@ export class BaseApiService {
     if (useAuth) {
       defaultHeaders = {
         ...defaultHeaders,
-        Authorization: `bearer ${localStorageService.getAuthToken()}`,
+        Authorization: `bearer ${storageService.getAuthToken()}`,
       };
     }
 
